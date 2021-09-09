@@ -6,7 +6,7 @@
 /*   By: balibala <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 22:43:53 by balibala          #+#    #+#             */
-/*   Updated: 2021/09/08 23:37:43 by balibala         ###   ########.fr       */
+/*   Updated: 2021/09/09 01:32:38 by balibala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,7 @@ char	*ft_itoa_base(unsigned long long int n, int base, t_flags *flags)
 		if (r >= 10)
 		{
 			if (flags->type != 120 && flags->type != 112)
-			{	
 				nbr[lenght++] = 65 + (r - 10);
-			}
 			else
 				nbr[lenght++] = 97 + (r - 10);
 		}

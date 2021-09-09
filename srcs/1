@@ -1,8 +1,0 @@
-#include "../includes/ft_printf.h"
-
-int	convert_output(va_list arg, t_flags *flags)
-{
-	if (flags->type == 'c')
-		return (a_char(flags, arg));
-	return (0);
-}
