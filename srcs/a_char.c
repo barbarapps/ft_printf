@@ -6,7 +6,7 @@
 /*   By: balibala <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 16:57:13 by balibala          #+#    #+#             */
-/*   Updated: 2021/09/05 16:57:07 by balibala         ###   ########.fr       */
+/*   Updated: 2021/09/10 10:15:25 by bpinto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	a_char(t_flags *flags, va_list arg)
 {
-	unsigned char c;
-	int		width;
-	int		count;
-	int		space;
+	unsigned char	c;
+	int				width;
+	int				count;
+	int				space;
 
 	c = va_arg(arg, int);
 	count = 0;

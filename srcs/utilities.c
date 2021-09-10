@@ -6,7 +6,7 @@
 /*   By: balibala <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 20:36:29 by balibala          #+#    #+#             */
-/*   Updated: 2021/09/08 22:38:07 by balibala         ###   ########.fr       */
+/*   Updated: 2021/09/10 16:19:39 by bpinto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ char	*add_ptr(char *str)
 	char	*tmp;
 
 	tmp = str;
-	str = ft_strjoin("0x", str);
+	str = ft_strjoin("0x", tmp);
+	//printf("\n\%s\n\n", str); 
 	free(tmp);
 	return (str);
 }

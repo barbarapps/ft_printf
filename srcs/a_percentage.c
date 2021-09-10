@@ -6,7 +6,7 @@
 /*   By: balibala <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 20:05:25 by balibala          #+#    #+#             */
-/*   Updated: 2021/09/05 20:07:12 by balibala         ###   ########.fr       */
+/*   Updated: 2021/09/10 10:18:43 by bpinto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 int	print_percentage(char *str, int precision)
 {
-	int index;
+	int	index;
 
 	index = 0;
-
 	while (str[index] && index < precision)
 		ft_putchar(str[index++]);
 	return (index);
@@ -25,11 +24,12 @@ int	print_percentage(char *str, int precision)
 
 int	a_percentage(t_flags *flags)
 {
-	int char_count;
+	int	char_count;
+
 	char_count = 0;
 	if (flags->minus == 0)
 		char_count += print_percentage("%", 1);
 	else
-		char_count += 0;;
+		char_count += 0;
 	return (char_count);
 }

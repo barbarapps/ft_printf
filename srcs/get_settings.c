@@ -6,7 +6,7 @@
 /*   By: balibala <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 14:27:41 by balibala          #+#    #+#             */
-/*   Updated: 2021/09/06 23:22:25 by balibala         ###   ########.fr       */
+/*   Updated: 2021/09/10 13:04:14 by bpinto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	check_width(char *input, va_list args, t_flags *flags, int *i)
 {
-	int out;
-	int counter;
-	
+	int	out;
+	int	counter;
+
 	out = 0;
 	counter = *i;
 	while (input[counter] >= '0' && input[counter] <= '9')
@@ -33,11 +33,12 @@ void	check_width(char *input, va_list args, t_flags *flags, int *i)
 	}
 	*i = counter;
 }
+
 void	check_precision(char *input, va_list args, t_flags *flags)
 {
 	int	out;
 	int	counter;
-	
+
 	out = 0;
 	counter = 0;
 	while (input[counter])
@@ -59,7 +60,7 @@ void	check_precision(char *input, va_list args, t_flags *flags)
 	}
 }
 
-int	check_size(char *input, va_list args,  t_flags *flags, int *counter)
+int	check_size(char *input, va_list args, t_flags *flags, int *counter)
 {
 	int	i;
 
@@ -76,7 +77,7 @@ int	check_size(char *input, va_list args,  t_flags *flags, int *counter)
 
 int	check_flags(char *input, t_flags *flags, int *counter)
 {
-	int i;
+	int	i;
 
 	i = *counter;
 	while (ft_strchr("-0. ", input[i]))
@@ -89,24 +90,22 @@ int	check_flags(char *input, t_flags *flags, int *counter)
 			flags->point += 1;
 		else if (input[i] == ' ')
 			flags->space += 1;
-		//else if (ft_isalpha(input[i]))
-			//break;
 		i++;
 	}
 	*counter = i;
 	return (i);
 }
 
-int		get_settings(char *input, va_list arg, t_flags *flags, int *i)
+int	get_settings(char *input, va_list arg, t_flags *flags, int *i)
 {
-	int counter;
-	
+	int	counter;
+
 	counter = *i;
-	counter += 1; 
+	counter += 1;
 	check_flags(input, flags, &counter);
 	check_size(input, arg, flags, &counter);
 	if (ft_strchr("cspdiuxX%", input[counter]))
 		flags->type = input[counter];
-	*i = counter; 
+	*i = counter;
 	return (counter);
 }

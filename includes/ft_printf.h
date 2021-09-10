@@ -1,15 +1,12 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# define ABS(Value) (Value < 0 ? -Value : Value)
+//#define ULONG_MAX "4294967295"
 
-/*# define D "0123456789"
-# define H "0123456789abcdef"
-# define UH "0123456789ABCDEF"
-# define O "01234567"
-*/
 # include "../libft/libft.h"
 # include <stdarg.h>
+# include <limits.h>
+
 
 typedef struct s_flags
 {
@@ -37,4 +34,3 @@ int		is_uxX(t_flags *flags, va_list arg);
 int		ft_putstr(char *str);
 char	*add_ptr(char *str);
 #endif
-

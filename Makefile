@@ -26,6 +26,8 @@ $(NAME): $(OBJS)
 		cp ./libft/libft.a $(NAME)
 		$(CLIB) $(NAME) $(OBJS)
 
+bonus: $(NAME) $(OBJS)
+	ar -rc $(NAME) $(OBJS) 
 clean:
 		$(MAKE) clean -C ./libft
 		$(RM) $(OBJS)

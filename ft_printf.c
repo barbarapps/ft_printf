@@ -1,8 +1,8 @@
 #include "includes/ft_printf.h"
 
-t_flags init_flags(void)
+t_flags	init_flags(void)
 {
-	t_flags flags;
+	t_flags	flags;
 
 	flags.minus = 0;
 	flags.zero = 0;
@@ -19,8 +19,8 @@ t_flags init_flags(void)
 
 int	set_structure(char *input, va_list arg)
 {
-	int i;
-	int count;
+	int		i;
+	int		count;
 	t_flags	flags;
 
 	i = 0;
@@ -31,10 +31,8 @@ int	set_structure(char *input, va_list arg)
 		if (input[i] == '%' && input[i + 1])
 		{
 			get_settings(input, arg, &flags, &i);
-			count += convert_output( arg, &flags);
+			count += convert_output(arg, &flags);
 		}
-		//else if (input[i] == ' ')
-			//count += ft_putchar(' ');
 		else if (input[i] != '%')
 			count += ft_putchar(input[i]);
 		i++;
@@ -47,7 +45,6 @@ int	ft_printf(const char *fmt, ...)
 	va_list	arg;
 	char	*input;
 	int		count;
-
 
 	input = ft_strdup(fmt);
 	va_start(arg, fmt);

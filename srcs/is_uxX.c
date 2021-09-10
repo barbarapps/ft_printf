@@ -6,7 +6,7 @@
 /*   By: balibala <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 22:43:53 by balibala          #+#    #+#             */
-/*   Updated: 2021/09/09 01:32:38 by balibala         ###   ########.fr       */
+/*   Updated: 2021/09/10 17:20:24 by bpinto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int		get_lenght(unsigned long long int number, int base)
 	while (number > 0)
 	{	
 		number /= base;
+		length++;
 	}
-	length++;
 	return (length); 
 }
 
@@ -53,6 +53,13 @@ char	*ft_itoa_base(unsigned long long int n, int base, t_flags *flags)
 	nbr = (char *)malloc(sizeof(char) * (b + 1));
 	if (!nbr)
 		return (NULL);
+	r = 0;
+	if (n == 0)
+	{
+		nbr[lenght++] = 48 + r;
+		nbr[lenght] = '\0';
+		return (nbr);
+	}	
 	while (n)
 	{
 		r =  n % base;

@@ -8,8 +8,8 @@ int	convert_output( va_list arg, t_flags *flags)
 		return (a_string(flags, arg));
 	if (flags->type == 'd' || flags->type == 'i')
 		return (a_int(flags, arg));
-	if (flags->type == 'u' || flags->type == 'x' || flags->type == 'X' ||
-		 flags->type == 'p') 
+	if (flags->type == 'u' || flags->type == 'x' || flags->type == 'X'
+		 || flags->type == 'p')
 		return (is_uxX(flags, arg));
 	if (flags->type == '%')
 		return (a_percentage(flags));
