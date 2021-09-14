@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   a_string.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: balibala <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/05 20:21:25 by balibala          #+#    #+#             */
-/*   Updated: 2021/09/10 18:01:04 by bpinto-d         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/ft_printf.h"
 
 int	a_string(t_flags *flags, va_list arg)
@@ -23,16 +11,21 @@ int	a_string(t_flags *flags, va_list arg)
 	if (!s)
 		s = "(null)";
 	width = flags->min_width;
-	while (width)
+	s = ft_strdup(s);
+	if (flags->minus && width)
 	{
-		if (flags->minus)
-		{
-			count += ft_putstr(s);
-			while (width-- > 1)
-				count += ft_putchar(' ');;
-		}
-		else 
-			count += ft_putstr(s);
+		count += ft_putstr(s);
+		while (width-- > (int)ft_strlen(s))
+			count += ft_putchar(' ');
 	}
+	else if (width)
+	{
+		while (width-- > (int)ft_strlen(s))
+			count += ft_putchar(' ');
+		count += ft_putstr(s);
+	}
+	else
+		count += ft_putstr(s);
+	free(s);
 	return (count);
 }

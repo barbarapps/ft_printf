@@ -6,7 +6,7 @@
 /*   By: balibala <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 22:43:53 by balibala          #+#    #+#             */
-/*   Updated: 2021/09/10 17:20:24 by bpinto-d         ###   ########.fr       */
+/*   Updated: 2021/09/14 01:46:05 by balibala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,20 +93,29 @@ char	*treat_base(t_flags *flags, va_list arg)
 
 int	is_uxX(t_flags *flags, va_list arg)
 {
-	char	*str;
-	int		count;
-	unsigned int		width;
+	char			*str;
+	int				count;
+	unsigned int	width;
+	int				i;	
 
 	count = 0;
 	str = treat_base(flags, arg);
 	if (!str)
 		return (0);
-	if (flags->type == 'p')
+	i = 0;
+	if (flags->type == 'p' || (flags->hash && str[i] != '0'))
 		str = add_ptr(str);
 	width = flags->min_width;
-	while (width-- > ft_strlen(str) && !flags->minus)
-		count += ft_putchar(' ');
+	if (!flags->minus && !flags->zero)
+	{
+		while (width-- > ft_strlen(str))
+			count += ft_putchar(' ');
+	}
+	while (width-- > ft_strlen(str) && flags->zero && str[i] != '-')
+		count += ft_putchar('0');
 	count += ft_putstr(str);
+	while (width-- > ft_strlen(str + 1) && flags->minus)
+		count += ft_putchar(' ');
 	free(str);
 	return (count);
 }

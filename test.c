@@ -6,7 +6,7 @@
 /*   By: bpinto-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 16:03:26 by bpinto-d          #+#    #+#             */
-/*   Updated: 2021/09/10 18:01:06 by bpinto-d         ###   ########.fr       */
+/*   Updated: 2021/09/14 02:21:45 by balibala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,37 @@ int		main()
 	r = ft_printf("%p", -1);
 	printf("\nr: %d\n", r);
 
-*/
-	r = printf("%-1s%-2s", "", "-");
+	r = printf("%1s", "");
 	printf("\nr: %d\n", r);
-	r = ft_printf("%-1s%-2s", "", "-");
+	r = ft_printf("%1s", "");
 	printf("\nr: %d\n", r);
-	//check_leaks();
+	
+
+
+	r = printf("%-2s", "-");
+	printf("\nr: %d\n", r);
+	r = ft_printf("%-2s", "-");
+	printf("\nr: %d\n", r);
+	
+
+	r = printf(" %-2s %-3s %-4s %-5s ", " - ", "", "4", "");
+	printf("\nr: %d\n", r);	
+	r = ft_printf(" %-2s %-3s %-4s %-5s ", " - ", "", "4", "");
+	printf("\nr: %d\n", r);	
+	
+	r = printf(" %-11p %-12p ", INT_MIN, INT_MAX);
+	printf("\nr: %d\n", r);	
+	r = ft_printf(" %-11p %-12p ", INT_MIN, INT_MAX);
+	printf("\nr: %d\n", r);
+	*/
+	r = printf(" %.2d ", 1);
+	printf("\nr: %d\n", r);	
+	r = ft_printf(" %.2d ", 1);
+	printf("\nr: %d\n", r);
+	
+	r = printf(" %.4d ", -9);
+	printf("\nr: %d\n", r);	
+	r = ft_printf(" %0.4d ", -9);
+	printf("\nr: %d\n", r);
 	return (0);
 }
